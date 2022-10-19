@@ -261,7 +261,8 @@ proc handleCommand(bot: Telebot, update: Update, command: string, args: seq[stri
       &"*Cached sessions*: `{len(chatSessions)}`\n" &
       &"*Cached markovs*: `{len(markovs)}`\n" &
       &"*Uptime*: `{toInt(epochTime() - uptime)}`s\n" &
-      &"*Database size*: `{humanBytes(getFileSize(MARKOV_DB))}`"
+      &"*Database size*: `{humanBytes(getFileSize(MARKOV_DB))}`" &
+      &"*Ram Usage*: `{human_bytes(getMaxMem())}`"
 
     if command == "stats":
       statsMessage &= &"\n\n*Memory usage*:\n{GC_getStatistics()}"
